@@ -1,0 +1,29 @@
+﻿@model GerenciadordeTarefas.Models.Task.TaskViewModel
+
+<div class="container mt-5">
+    <h2 class="text-center">Criar nova Tarefa</h2>
+
+    <form asp-action="Create" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="Title">Titulo</label>
+            <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required />
+        </div>
+        <div class="form-group">
+            <label for="Title">Descrição</label>
+            <input type="text" class="form-control" id="Description" name="Description" value="@Model.Description" required />
+        </div>
+        <div class="form-group">
+            <input type="checkbox" class="form-check-input"  id="IsCompleted" name="IsCompleted" @(Model.IsCompleted ? "checked" : "") />
+            <label class="form-check-label">Concluida</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="@Url.Action("Index", "Task")" class="btn btn-secondary">Cancelar</a>
+
+    </form>
+</div>
+
+<!-- OBSERVAÇÃO FERNANDO -->
+<!-- Terei que rever as aulas de tipagem novamente Fernando, tentei fazer a tipagem forte mas infelizmente não saiu como esperado
+    e eu não quis colar do chat GPT, visto que no final eu não aprenderia o metodo real e ficaria a mercer de sempre ficar usando
+    essa IA-->

@@ -1,0 +1,12 @@
+﻿@model GerenciadordeTarefas.Models.Task.TaskViewModel
+
+<div class="container mt-5">
+    <h2 class="text-center">Excluir tarefa</h2>
+    <p class="mt-4">Deseja fazer a exclusão<strong>@Model.Title</strong>?</p>
+
+    <form method="post" action="/Task/DeleteConfirmed">
+        <input type="hidden" name="Id" value="@Model.Id"/>
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a class="btn btn secondary" href="@Url.Action("Index", "Task")">Cancelar</a>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<GerenciadordeTarefas.Models.Task.TaskViewModel>
+
+<div class="container mt-5">
+    <h2 class="text-center"><strong>Listagem detalhada dos Tickets</strong></h2>
+    <table class="table table-striped mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th>Tickets</th>
+                <th>Tipo</th>
+                <th>Comprado</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.Title</td>
+                    <td>@task.Description</td>
+                    <td>@task.IsCompleted</td>
+                    <td>
+                        <a href="@Url.Action("Details", "Task", new { id = task.Id })">Detalhes</a>
+                        <a href="@Url.Action("Edit", "Task", new {id = task.Id})">Editar</a>
+                        <a href="@Url.Action("Delete", "Task", new {id = task.Id})">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("Create", "Task")" class="btn btn-success">Adicionar um novo Ticket</a>
+</div>

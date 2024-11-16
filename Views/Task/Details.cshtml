@@ -1,0 +1,22 @@
+﻿@model GerenciadordeTarefas.Models.Task.TaskViewModel
+
+<div class="container mt-5">
+    <h2 class="text-center">Detalhes do Ticket</h2>
+    <table class="table mt-4">
+        <tr>
+            <th>Ticket</th>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <th>Detalhes</th>
+            <td>@Model.Description</td>
+        </tr>
+        <tr>
+            <th>Lote</th>
+            <td>@Model.IsCompleted</td>
+        </tr>
+    </table>
+
+    <a href="@Url.Action("Edit", "Task" , new { id = Model.Id })" class="btn btn-warning">Editar</a>
+    <a href="@Url.Action("Index", "Task")" class="btn btn-secondary">Voltar</a>
+</div>
